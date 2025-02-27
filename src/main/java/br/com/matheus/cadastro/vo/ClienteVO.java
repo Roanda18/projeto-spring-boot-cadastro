@@ -1,11 +1,11 @@
-package br.com.matheus.cadastro.Vo;
+package br.com.matheus.cadastro.vo;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class ClienteVO {
 
-    private BigDecimal id;
+    private BigDecimal key;
     private String nome;
     private Date data_aniversario;
     private BigDecimal cpf;
@@ -14,12 +14,12 @@ public class ClienteVO {
     public ClienteVO() {
     }
 
-    public BigDecimal getId() {
-        return id;
+    public BigDecimal getKey() {
+        return key;
     }
 
-    public void setId(BigDecimal id) {
-        this.id = id;
+    public void setKey(BigDecimal key) {
+        this.key = key;
     }
 
     public String getNome() {
