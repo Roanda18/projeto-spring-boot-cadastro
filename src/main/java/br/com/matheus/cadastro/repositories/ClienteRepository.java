@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
     @Query("SELECT p FROM Cliente p WHERE p.nome LIKE LOWER(CONCAT ('%',:nome,'%'))")
-    Page<Cliente> findPersonByName(@Param("nome")String nome, Pageable pageable);
+    Page<Cliente> buscarClientePorNome(@Param("nome")String nome, Pageable pageable);
 }

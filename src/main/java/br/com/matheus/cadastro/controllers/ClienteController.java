@@ -1,6 +1,7 @@
 package br.com.matheus.cadastro.controllers;
 
 
+import br.com.matheus.cadastro.services.ClienteServices;
 import br.com.matheus.cadastro.util.MediaType;
 import br.com.matheus.cadastro.vo.ClienteVO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -47,7 +48,7 @@ public class ClienteController {
 
         var sortDirection = "desc".equalsIgnoreCase(direction) ? Sort.Direction.DESC : Sort.Direction.ASC;
         Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "nome"));
-        return ResponseEntity.ok(servico.buscartodos(pageable));
+        return ResponseEntity.ok(servico.buscarTodos(pageable));
     }
 
     @GetMapping(value = "/buscaClientePorNome/{nome}", produces = MediaType.APPLICATION_JSON)
@@ -69,7 +70,7 @@ public class ClienteController {
 
         var sortDirection = "desc".equalsIgnoreCase(direction) ? Sort.Direction.DESC : Sort.Direction.ASC;
         Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "nome"));
-        return ResponseEntity.ok(servico.buscaClineteNome(nome, pageable));
+        return ResponseEntity.ok(servico.buscaClientePorNome(nome, pageable));
     }
 
     @Operation(summary = "Busca cliente por ID", description = "Busca cliente por ID", tags = {"Cliente"})
@@ -89,7 +90,7 @@ public class ClienteController {
     @GetMapping("/{id}")
 
     public ClienteVO buscaPorId(@PathVariable BigDecimal id) {
-        return servico.buscaClienteId(id);
+        return servico.buscarPorId(id);
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
@@ -117,7 +118,7 @@ public class ClienteController {
     })
 
     public ClienteVO alterar(@RequestBody ClienteVO cliente) {
-        return servico.alterar(cliente);
+        return servico.atualizar(cliente);
     }
 
     @DeleteMapping(value = "/{id}")
@@ -129,7 +130,7 @@ public class ClienteController {
     })
 
     public ResponseEntity<?> deletar(@PathVariable BigDecimal id){
-        servico.deletar(id);
+        servico.deletar(id.longValue());
         return ResponseEntity.noContent().build();
     }
 }

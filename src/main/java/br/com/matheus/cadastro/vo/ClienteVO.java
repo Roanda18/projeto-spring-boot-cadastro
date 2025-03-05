@@ -1,10 +1,18 @@
 package br.com.matheus.cadastro.vo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import io.swagger.v3.oas.annotations.media.Schema;
+import org.springframework.hateoas.RepresentationModel;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class ClienteVO {
+@Schema
+@JsonPropertyOrder({"id","nome","data_aniversario","cpf","endereco"})
+public class ClienteVO extends RepresentationModel<ClienteVO> {
 
+    @JsonProperty("id")
     private BigDecimal key;
     private String nome;
     private Date data_aniversario;
