@@ -49,13 +49,13 @@ public class JwtTokenProvider {
         return new TokenVO(usuario, true, agora, validade, tokenAcesso, tokenAtualizado);
     }
 
-    public TokenVO atualizacaoToken(String atualizacaoToken) {
+    public TokenVO atualizarToken(String atualizarToken) {
 
-        if (atualizacaoToken.contains("Bearer ")) {
-            atualizacaoToken = atualizacaoToken.substring("Bearer ".length());
+        if (atualizarToken.contains("Bearer ")) {
+            atualizarToken = atualizarToken.substring("Bearer ".length());
         }
         JWTVerifier verificacao = JWT.require(algorithm).build();
-        DecodedJWT decodedJWT = verificacao.verify(atualizacaoToken);
+        DecodedJWT decodedJWT = verificacao.verify(atualizarToken);
         String usuario = decodedJWT.getSubject();
         List<String> roles = decodedJWT.getClaim("roles").asList(String.class);
         return criandoTokenAcesso(usuario, roles);
