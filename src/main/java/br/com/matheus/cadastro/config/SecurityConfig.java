@@ -14,8 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import securityJwt.JwtTokenFilter;
-import securityJwt.JwtTokenProvider;
+import br.com.matheus.cadastro.securityJwt.JwtTokenFilter;
+import br.com.matheus.cadastro.securityJwt.JwtTokenProvider;
 
 import java.util.HashMap;
 import java.util.Map;

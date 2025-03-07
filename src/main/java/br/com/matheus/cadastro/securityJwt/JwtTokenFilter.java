@@ -1,4 +1,4 @@
-package securityJwt;
+package br.com.matheus.cadastro.securityJwt;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

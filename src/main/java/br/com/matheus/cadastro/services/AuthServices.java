@@ -1,6 +1,6 @@
 package br.com.matheus.cadastro.services;
 
-import br.com.matheus.cadastro.repositories.UsuariorRepository;
+import br.com.matheus.cadastro.repositories.UsuarioRepository;
 import br.com.matheus.cadastro.vo.security.ContasCredenciadasVO;
 import br.com.matheus.cadastro.vo.security.TokenVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import securityJwt.JwtTokenProvider;
+import br.com.matheus.cadastro.securityJwt.JwtTokenProvider;
 
 @Service
 public class AuthServices {
@@ -20,7 +20,7 @@ public class AuthServices {
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
     @Autowired
-    private UsuariorRepository usuariorRepository;
+    private UsuarioRepository usuariorRepository;
 
     @SuppressWarnings("rawtypes")
     public ResponseEntity logar(ContasCredenciadasVO dados){

@@ -1,4 +1,4 @@
-package exceptions;
+package br.com.matheus.cadastro.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;

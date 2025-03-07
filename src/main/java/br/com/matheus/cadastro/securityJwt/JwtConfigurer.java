@@ -1,4 +1,4 @@
-package securityJwt;
+package br.com.matheus.cadastro.securityJwt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
