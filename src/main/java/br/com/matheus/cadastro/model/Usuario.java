@@ -41,7 +41,7 @@ public class Usuario implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "permisao_usuario"
             , joinColumns = {@JoinColumn(name = "id_usuario")}
-            , inverseJoinColumns = {@JoinColumn(name = "id_permission")}
+            , inverseJoinColumns = {@JoinColumn(name = "id_permissao")}
     )
     private List<Permissao> permissions;
 
