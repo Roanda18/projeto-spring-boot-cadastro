@@ -13,6 +13,7 @@ import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.PagedModel;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.logging.Logger;
@@ -20,6 +21,7 @@ import java.util.logging.Logger;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+@Service
 public class ClienteServices {
 
     private Logger logger = Logger.getLogger(ClienteServices.class.getName());
@@ -28,8 +30,6 @@ public class ClienteServices {
     ClienteRepository repository;
     @Autowired
     PagedResourcesAssembler<ClienteVO> assembler;
-    @Autowired
-    ClienteMapper mapper;
 
     public PagedModel<EntityModel<ClienteVO>> buscarTodos(Pageable pageable) {
 
@@ -93,7 +93,7 @@ public class ClienteServices {
                 .orElseThrow(() -> new ResourceNotFoundException("Não foi encotrado cliente com esse ID") );
 
         entity.setNome(cliente.getNome());
-        entity.setData_aniversario(cliente.getData_aniversario());
+        entity.setDataAniversario(cliente.getData_aniversario());
         entity.setCpf(cliente.getCpf());
         entity.setEndereco(cliente.getEndereco());
 

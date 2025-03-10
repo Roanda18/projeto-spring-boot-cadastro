@@ -1,14 +1,24 @@
 package br.com.matheus.cadastro.model;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Entity
+@Table(name = "cliente")
 public class Cliente {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigDecimal id;
+    @Column(nullable = false, length = 200)
     private String nome;
-    private Date data_aniversario;
+    @Column(name = "data_aniversario", nullable = false, length = 200)
+    private Date dataAniversario;
+    @Column(nullable = false, length = 200)
     private BigDecimal cpf;
+    @Column(nullable = false, length = 300)
     private String endereco;
 
     public Cliente() {
@@ -17,7 +27,7 @@ public class Cliente {
     public Cliente(BigDecimal id, String nome, Date data_aniversario, BigDecimal cpf, String endereco) {
         this.id = id;
         this.nome = nome;
-        this.data_aniversario = data_aniversario;
+        this.dataAniversario = data_aniversario;
         this.cpf = cpf;
         this.endereco = endereco;
     }
@@ -38,12 +48,12 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Date getData_aniversario() {
-        return data_aniversario;
+    public Date getDataAniversario() {
+        return dataAniversario;
     }
 
-    public void setData_aniversario(Date data_aniversario) {
-        this.data_aniversario = data_aniversario;
+    public void setDataAniversario(Date dataAniversario) {
+        this.dataAniversario = dataAniversario;
     }
 
     public BigDecimal getCpf() {
