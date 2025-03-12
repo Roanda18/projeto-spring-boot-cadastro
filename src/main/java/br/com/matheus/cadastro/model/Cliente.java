@@ -3,7 +3,7 @@ package br.com.matheus.cadastro.model;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "cliente")
@@ -14,8 +14,8 @@ public class Cliente {
     private BigDecimal id;
     @Column(nullable = false, length = 200)
     private String nome;
-    @Column(name = "data_aniversario", nullable = false, length = 200)
-    private Date dataAniversario;
+    @Column(name = "data_aniversario", nullable = false)
+    private LocalDate dataAniversario;
     @Column(nullable = false, length = 200)
     private BigDecimal cpf;
     @Column(nullable = false, length = 300)
@@ -24,10 +24,10 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(BigDecimal id, String nome, Date data_aniversario, BigDecimal cpf, String endereco) {
+    public Cliente(BigDecimal id, String nome, LocalDate dataAniversario, BigDecimal cpf, String endereco) {
         this.id = id;
         this.nome = nome;
-        this.dataAniversario = data_aniversario;
+        this.dataAniversario = dataAniversario;
         this.cpf = cpf;
         this.endereco = endereco;
     }
@@ -48,11 +48,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Date getDataAniversario() {
+    public LocalDate getDataAniversario() {
         return dataAniversario;
     }
 
-    public void setDataAniversario(Date dataAniversario) {
+    public void setDataAniversario(LocalDate dataAniversario) {
         this.dataAniversario = dataAniversario;
     }
 

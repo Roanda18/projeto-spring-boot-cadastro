@@ -93,7 +93,7 @@ public class ClienteServices {
                 .orElseThrow(() -> new ResourceNotFoundException("Não foi encotrado cliente com esse ID") );
 
         entity.setNome(cliente.getNome());
-        entity.setDataAniversario(cliente.getData_aniversario());
+        entity.setDataAniversario(cliente.getDataAniversario());
         entity.setCpf(cliente.getCpf());
         entity.setEndereco(cliente.getEndereco());
 

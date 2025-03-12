@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Schema
@@ -15,7 +16,7 @@ public class ClienteVO extends RepresentationModel<ClienteVO> {
     @JsonProperty("id")
     private BigDecimal key;
     private String nome;
-    private Date data_aniversario;
+    private LocalDate dataAniversario;
     private BigDecimal cpf;
     private String endereco;
 
@@ -38,12 +39,12 @@ public class ClienteVO extends RepresentationModel<ClienteVO> {
         this.nome = nome;
     }
 
-    public Date getData_aniversario() {
-        return data_aniversario;
+    public LocalDate getDataAniversario() {
+        return dataAniversario;
     }
 
-    public void setData_aniversario(Date data_aniversario) {
-        this.data_aniversario = data_aniversario;
+    public void setDataAniversario(LocalDate dataAniversario) {
+        this.dataAniversario = dataAniversario;
     }
 
     public BigDecimal getCpf() {
